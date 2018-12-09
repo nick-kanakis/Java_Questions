@@ -98,7 +98,7 @@ All objects are stored in Eden space. When Eden space is full a minor gc occures
 
 After X rounds surving objects will be moved to Old space. Here gc in not often, but when it happens it stops everything ("stop the world")
 
-> Types of references in JVM
+> Types of references in JVM.
 
 - Strong. Created by "new" keyword, will be garbage collected.
 - Weak. Will propable not survive the next gc. WeakReference<MyObject> newWeakReference = new WeakReference<>(new MyObject());
@@ -110,7 +110,7 @@ Finalize() and clean() are methods that are called just before destroying an obj
 
 SOS: It is just a suggetion to the compiler.
 
-> Types of GC
+> Types of GC.
 
 - Serial. For smaller cpus, one thread is used.
 - Parallel. Multiple threads are used but in old space only 1 thread is still used.
@@ -124,6 +124,16 @@ Reads the bytecode & executes it.
 
 - Interpreter. Reads, interpretes to machine code & executes bytecode.
 - JIT. Just In Time compliler, is used in frequently used code parts, it compiles to native c/c++ the code and do not use interpreter any more for this part.
+
+## JDBC
+
+> What is JDBC ? 
+
+JDBC is an abstraction layer that allows users to choose between databases. JDBC enables developers to write database applications in Java, without having to concern themselves with the underlying details of a particular database.
+
+> What does Connection pooling mean ? 
+
+The interaction with a database can be costly, regarding the opening and closing of database connections. Especially, when the number of database clients increases, this cost is very high and a large number of resources is consumed.A pool of database connections is obtained at start up by the application server and is maintained in a pool. A request for a connection is served by a connection residing in the pool. In the end of the connection, the request is returned to the pool and can be used to satisfy future requests.
 
 
 
