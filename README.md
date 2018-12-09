@@ -106,7 +106,9 @@ After X rounds surving objects will be moved to Old space. Here gc in not often,
 
 > Finalizers & cleaners.
 
-Finalize() and clean() are methods that are called just before destroying an object.
+Finalize() and clean() are methods that are called just before destroying an object. It is normally advised to release resources held by the object inside the finalize method. 
+
+SOS: It is just a suggetion to the compiler.
 
 > Types of GC
 
