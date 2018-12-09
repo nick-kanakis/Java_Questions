@@ -135,5 +135,31 @@ JDBC is an abstraction layer that allows users to choose between databases. JDBC
 
 The interaction with a database can be costly, regarding the opening and closing of database connections. Especially, when the number of database clients increases, this cost is very high and a large number of resources is consumed.A pool of database connections is obtained at start up by the application server and is maintained in a pool. A request for a connection is served by a connection residing in the pool. In the end of the connection, the request is returned to the pool and can be used to satisfy future requests.
 
+## Servlets
+
+> What is a Servlet ? 
+
+ The servlet is a Java programming language class used to process client requests and generate dynamic web content. Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state information that does not exist in the stateless HTTP protocol.
+ 
+ > Arhitechure of a Servlet.
+ 
+ The core abstraction that must be implemented by all servlets is the ```javax.servlet.Servlet``` interface. Each servlet must implement it either directly or indirectly, either by extending ```javax.servlet.GenericServlet``` or ```javax.servlet.http.HTTPServlet```. Finally, each servlet is able to serve multiple requests in parallel using multithreading. Generic Servlet is a generic, protocol independent servlet, HttpServlet is a servlet tied specifically to the HTTP protocol.
+ 
+ > Life cycle of a Servlet.
+ 
+On every client’s request, the Servlet Engine loads the servlets and invokes its **init** methods, in order for the servlet to be initialized. Then, the Servlet object handles all subsequent requests coming from that client, by invoking the service method for each request separately. Finally, the servlet is removed by calling the server’s **destroy** method.
+
+> Structure of the HTTP response.
+
+- **Status Code**: Describes the status of the response. It can be used to check if the request has been successfully completed.
+- **HTTP Headers**: Contains more information about the response. For example, the headers may specify the date/time after which the response is considered stale, or the form of encoding used to safely transfer the entity to the user.
+- **Body**: Contains the content of the response. The body may contain HTML code, an image, etc. The body consists of the data bytes transmitted in an HTTP transaction message immediately following the headers
+
+> What is a cookie ? What is the difference between session and cookie ?
+
+A cookie is a bit of information that the Web server sends to the browser. The browser stores the cookies for each Web server in a local file. In a future request, the browser, along with the request, sends all stored cookies for that specific Web server.The differences between session and a cookie are the following:
+
+- Session should work, regardless of the settings on the client browser. The client may have chosen to disable cookies. However, the sessions still work, as the client has no ability to disable them in the server side.
+- The HTTP session is capable of storing any Java object, while a cookie can only store String objects.
 
 
